@@ -4,6 +4,22 @@
      secondaryButtonText="Singnup now"
 >
      <form [formGroup]="loginForm">
-          <p>ou</p>
+        <app-primary-input
+               formControlName="email"
+            inputName="email"
+            type="email"
+            label="Email"
+            placeholder="jodson541@gmail.com">
+          <img src="../../../assets/svg/email-icon.svg" alt="email icon" />
+        </app-primary-input>
+        <app-primary-input
+        formControlName="password"
+            inputName="password"
+            type="password"
+            label="Your password"
+            placeholder="********">
+          <img src="../../../assets/svg/password-icon.svg" alt="email icon" />
+        </app-primary-input>
+        <span>Forgot password?</span>
      </form>
 </app-default-login-layout>

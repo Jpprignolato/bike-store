@@ -26,16 +26,23 @@ export class PrimaryInputComponent implements ControlValueAccessor {
   @Input() inputName: string = "";
 
   value: string = "";
-  onChange: any = () => { }
-  onTouch: any = () => { }
+  disabled = false;
+
+  onChange: any = () => {};
+  onTouch: any = () => {};
 
   onInput(event: Event) {
-    const input = (event.target as HTMLInputElement).value;
+    const inputValue = (event.target as HTMLInputElement).value;
+    this.value = inputValue;
     this.onChange(this.value);
   }
 
+  onBlur() {
+    this.onTouch();
+  }
+
   writeValue(value: any): void {
-    this.value = value;
+    this.value = value || "";
   }
 
   registerOnChange(fn: any): void {
@@ -47,6 +54,6 @@ export class PrimaryInputComponent implements ControlValueAccessor {
   }
 
   setDisabledState(isDisabled: boolean): void {
-    
+    this.disabled = isDisabled;
   }
 }
